@@ -261,7 +261,7 @@ $Action1=New-AzCdnDeliveryRuleAction -HeaderActionType ModifyResponseHeader -Act
 $PathBasedCacheOverrideRule=New-AzCdnDeliveryRule -Name "PathBasedCacheOverride" -Order 1 -Condition $Cond1 -Action $action1
 
 # Create a delivery policy with above deliveryRules.
-$Policy = New-AzCdnDeliveryPolicy -Description "DeliveryPolicy" -Rule $HttpToHttpsRedirectRule,$UrlRewriteRule
+$Policy = New-AzCdnDeliveryPolicy -Description "DeliveryPolicy" -Rule $HttpToHttpsRedirectRule,$PathBasedCacheOverrideRule
 
 # Update existing endpoint with created delivery policy
 $ep = Get-AzCdnEndpoint -EndpointName cdndocdemo -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
